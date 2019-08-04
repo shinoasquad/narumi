@@ -54,8 +54,8 @@ public final class Narumi {
                         .addInterceptor(chain -> chain.proceed(chain.request().newBuilder().addHeader("Authorization", "Bot " + token).build())).build())
                 .addConverterFactory(JacksonConverterFactory.create(new ObjectMapper()
                         .registerModule(new SimpleModule()
-                                .addSerializer(ZonedDateTime.class, new ZonedDateTimeTransformer.ZonedDateTimeSerializer())
-                                .addDeserializer(ZonedDateTime.class, new ZonedDateTimeTransformer.ZonedDateTimeDeserializer()))))
+                                .addSerializer(ZonedDateTime.class, new ZonedDateTimeTransformer.Serializer())
+                                .addDeserializer(ZonedDateTime.class, new ZonedDateTimeTransformer.Deserializer()))))
                 .callbackExecutor(Executors.newFixedThreadPool(4))
                 .build();
         this.messageService = retrofit.create(MessageService.class);

@@ -42,9 +42,9 @@ import java.time.ZonedDateTime;
  * @author vocan
  * @since 31.07.2019
  */
-public final class ZonedDateTimeTransformer {
+    public final class ZonedDateTimeTransformer {
 
-    public final static class ZonedDateTimeSerializer extends JsonSerializer<ZonedDateTime> {
+    public final static class Serializer extends JsonSerializer<ZonedDateTime> {
 
         @Override
         public void serialize(final ZonedDateTime time, final JsonGenerator generator, final SerializerProvider provider) throws IOException {
@@ -52,7 +52,7 @@ public final class ZonedDateTimeTransformer {
         }
     }
 
-    public final static class ZonedDateTimeDeserializer extends JsonDeserializer<ZonedDateTime> {
+    public final static class Deserializer extends JsonDeserializer<ZonedDateTime> {
 
         @Override
         public ZonedDateTime deserialize(final JsonParser parser, final DeserializationContext context) throws IOException {
